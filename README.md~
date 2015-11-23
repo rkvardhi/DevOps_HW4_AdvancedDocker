@@ -19,7 +19,7 @@ Build a container named server for a node js app.
 
 ```
 docker build -t ncsu-app .
-docker run -p 50100:8081 -d --name server ncsu-app
+docker run -p 50100:8081 -d1--name server ncsu-app
 docker logs <containerid>
 ```
 ##### Running socat and exposing over port 9001
