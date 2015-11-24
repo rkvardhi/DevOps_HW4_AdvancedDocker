@@ -37,24 +37,57 @@ sudo docker run -d -P --name client --link server ncsu-app
 ```
 curl http://server:9001
 ```
+The screencast of File IO can be found in [this link](https://github.com/rkvardhi/DevOps_HW4_AdvancedDocker/blob/master/FileIO/ScreenCast_FileIO.mp4)
 
 ####2.Ambassador Pattern:
-Created two virtual machines in Virtual Box and installed docker and docker compose.
+Created a virtual machine in Virtual Box and installed docker and docker compose.
 
-Run redis-server and server-ambassador in virtual machine 1.
+Used local machine as one of the machine and installed docker and docker compose in it.
 
-Run client-ambassador and client-redis in virtual machine 2.
+Run redis-server and server-ambassador on local machine.
 
-######Command to execute in virtual machine 1:
+Run client-ambassador and client-redis on virtual machine.
+
+######Command to execute on local machine (acts as server):
 ```
 sudo docker-compose up
 ```
-######Command to execute in virtual machine 2:
+######Command to execute on virtual machine (acts as client):
 ```
 sudo docker-compose run client-redis
 ```
 Then set/get keys in client
 
-The screencast can be found in [this link]()
+The screencast of Ambassador Pattern can be found in [this link](https://github.com/rkvardhi/DevOps_HW4_AdvancedDocker/blob/master/Ambassador%20Pattern/ScreenCast_AmbassadorPattern.mp4)
 
 ####3.Docker Deploy:
+
+##### Node App and Dockerfile
+Node App and Dockerfile exists in [this](https://github.com/rkvardhi/DevOps_HW4_AdvancedDocker/tree/master/FileIO) folder
+
+[post-commit hook]() in App is configured to build the image named ncsu-app and pushes it to registry
+
+[post-receive hook of blue slice]() has been configured to get the lastest image from registry and build the container named blueapp. The container blueapp maps host port 50100 to docker post 8081.
+
+[post-receive hook of green slice]() has been configured to get the lastest image from registry and build the container named greenapp. The container greenapp maps host port 50101 to docker post 8081.
+
+######Steps followed to demonstrate Docker Deploy:
+1. Make a change to main.js in App
+
+2. Commit the changes : post-commit hook is configured to build the image named ncsu-app and pushes it to registry
+
+3. Deploy to blue slice : git push blue master
+	-In post-receive file of blue.git, it has been configured to get the lastest image from registry and build the container named blue app.
+	-It maps host port 50100 to docker post 8081.
+	-So we can test using "curl -i localhost:50100".
+
+4. Repeat step 3 with green slice
+	-It maps host port 50101 to docker post 8081
+	-So we can test using "curl -i localhost:50101"
+
+5. Make a change to main.js in App and commit the changes
+
+6. Deploy only to blue instance, with no changes to green
+	- Only blue instance gets reflected with the changes but not green
+
+The screencast of Docker Deploy can be found in [this link](https://github.com/rkvardhi/DevOps_HW4_AdvancedDocker/blob/master/Ambassador%20Pattern/ScreenCast_AmbassadorPattern.mp4)
