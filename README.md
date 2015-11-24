@@ -63,7 +63,7 @@ The screencast of Ambassador Pattern can be found in [this link](https://github.
 ####3.Docker Deploy:
 
 ##### Node App and Dockerfile
-Node App and Dockerfile exists in [this](https://github.com/rkvardhi/DevOps_HW4_AdvancedDocker/tree/master/FileIO) folder
+Node App and Dockerfile exists in [this](https://github.com/rkvardhi/DevOps_HW4_AdvancedDocker/tree/master/DockerDeploy/SampleApp) folder
 
 [post-commit hook](https://github.com/rkvardhi/DevOps_HW4_AdvancedDocker/blob/master/DockerDeploy/post-commit) in App is configured to build the image named ncsu-app and pushes it to registry
 
