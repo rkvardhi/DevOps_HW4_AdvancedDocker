@@ -37,24 +37,27 @@ sudo docker run -d -P --name client --link server ncsu-app
 ```
 curl http://server:9001
 ```
+The screencast can be found in [this link](https://github.com/rkvardhi/DevOps_HW4_AdvancedDocker/blob/master/FileIO/ScreenCast_FileIO.mp4)
 
 ####2.Ambassador Pattern:
-Created two virtual machines in Virtual Box and installed docker and docker compose.
+Created a virtual machine in Virtual Box and installed docker and docker compose.
 
-Run redis-server and server-ambassador in virtual machine 1.
+Used local machine as one of the machine and installed docker and docker compose in it.
 
-Run client-ambassador and client-redis in virtual machine 2.
+Run redis-server and server-ambassador on local machine.
 
-######Command to execute in virtual machine 1:
+Run client-ambassador and client-redis on virtual machine.
+
+######Command to execute on local machine (acts as server):
 ```
 sudo docker-compose up
 ```
-######Command to execute in virtual machine 2:
+######Command to execute on virtual machine (acts as client):
 ```
 sudo docker-compose run client-redis
 ```
 Then set/get keys in client
 
-The screencast can be found in [this link]()
+The screencast can be found in [this link](https://github.com/rkvardhi/DevOps_HW4_AdvancedDocker/blob/master/Ambassador%20Pattern/ScreenCast_AmbassadorPattern.mp4)
 
 ####3.Docker Deploy:
