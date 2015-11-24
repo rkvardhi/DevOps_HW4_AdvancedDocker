@@ -1,0 +1,8 @@
+#!/bin/sh
+
+sudo docker stop greenapp  
+sudo docker rm greenapp
+sudo docker rmi localhost:5000/ncsu:current  
+sudo docker pull localhost:5000/ncsu:latest 
+sudo docker tag localhost:5000/ncsu:latest localhost:5000/ncsu:current
+sudo docker run -p 50101:8081 -d --name greenapp localhost:5000/ncsu:latest

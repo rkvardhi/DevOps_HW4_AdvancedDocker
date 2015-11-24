@@ -1,0 +1,8 @@
+#!/bin/sh
+
+sudo docker stop blueapp  
+sudo docker rm blueapp
+sudo docker rmi localhost:5000/ncsu:current  
+sudo docker pull localhost:5000/ncsu:latest 
+sudo docker tag localhost:5000/ncsu:latest localhost:5000/ncsu:current
+sudo docker run -p 50100:8081 -d --name blueapp localhost:5000/ncsu:latest
