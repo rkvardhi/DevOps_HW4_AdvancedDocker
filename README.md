@@ -65,11 +65,11 @@ The screencast of Ambassador Pattern can be found in [this link](https://github.
 ##### Node App and Dockerfile
 Node App and Dockerfile exists in [this](https://github.com/rkvardhi/DevOps_HW4_AdvancedDocker/tree/master/FileIO) folder
 
-[post-commit hook]() in App is configured to build the image named ncsu-app and pushes it to registry
+[post-commit hook](https://github.com/rkvardhi/DevOps_HW4_AdvancedDocker/blob/master/DockerDeploy/post-commit) in App is configured to build the image named ncsu-app and pushes it to registry
 
-[post-receive hook of blue slice]() has been configured to get the lastest image from registry and build the container named blueapp. The container blueapp maps host port 50100 to docker post 8081.
+[post-receive hook of blue slice](https://github.com/rkvardhi/DevOps_HW4_AdvancedDocker/blob/master/DockerDeploy/post-receive%28blue%20slice%29) has been configured to get the lastest image from registry and build the container named blueapp. The container blueapp maps host port 50100 to docker post 8081.
 
-[post-receive hook of green slice]() has been configured to get the lastest image from registry and build the container named greenapp. The container greenapp maps host port 50101 to docker post 8081.
+[post-receive hook of green slice](https://github.com/rkvardhi/DevOps_HW4_AdvancedDocker/blob/master/DockerDeploy/post-receive%28green%20slice%29) has been configured to get the lastest image from registry and build the container named greenapp. The container greenapp maps host port 50101 to docker post 8081.
 
 ######Steps followed to demonstrate Docker Deploy:
 1. Make a change to main.js in App
@@ -90,4 +90,4 @@ Node App and Dockerfile exists in [this](https://github.com/rkvardhi/DevOps_HW4_
 6. Deploy only to blue instance, with no changes to green
 	- Only blue instance gets reflected with the changes but not green
 
-The screencast of Docker Deploy can be found in [this link](https://github.com/rkvardhi/DevOps_HW4_AdvancedDocker/blob/master/Ambassador%20Pattern/ScreenCast_AmbassadorPattern.mp4)
+The screencast of Docker Deploy can be found in [this link](https://github.com/rkvardhi/DevOps_HW4_AdvancedDocker/blob/master/DockerDeploy/Screencast_DockerDeploy.mp4)
